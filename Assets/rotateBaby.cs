@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class rotateBaby : MonoBehaviour
 {
-    public int speed = 360;
+    public float speed = 360;
 
     // Start is called before the first frame update
     void Start()
     {
         // hola
+        GetComponent<Transform>().eulerAngles += new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
