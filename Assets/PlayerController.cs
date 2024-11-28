@@ -16,10 +16,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
-    {
-    }
-
     void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
@@ -31,5 +27,13 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         rb.AddForce(movement * speed);
+    }
+
+    void OnCollisionEnter(Collision collision)
+     {
+        if (collision.gameObject.CompareTag("Gem"))
+        {
+            collision.gameObject.SetActive(false);
+        }
     }
 }
